@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Exam Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    #message {
+      margin-top: 15px;
+      color:green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Student Exam Register Form</h2>
+  
+  <form id="examForm">
+    <label for="name">Student Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="course">Course:</label>
+    <select id="course">
+      <option value="">Select Course</option>
+      <option value="Maths">Maths</option>
+      <option value="Science">Science</option>
+      <option value="History">History</option>
+    </select>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" required>
+
+    <button type="submit">Register</button>
+    <div id="message"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById("examForm");
+    const message = document.getElementById("message");
+
+    // Event 1: Form Submit
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent actual form submission
+      message.textContent = " Registered Successfully!";
+      console.log("Form submitted with values:");
+      console.log("Name:", name.value);
+      console.log("Email:", email.value);
+      console.log("Course:", course.value);
+      console.log("DOB:", dob.value);
+    });
+
+    // Event 2: Input Focus
+    document.getElementById("name").addEventListener("focus", () => {
+      console.log("User is typing their name...");
+    });
+
+    // Event 3: Input Change
+    document.getElementById("course").addEventListener("change", () => {
+      console.log("Course selected:", course.value);
+    });
+
+    // Event 4: Keypress in Email
+    document.getElementById("email").addEventListener("keypress", (e) => {
+      console.log("Typing email:", e.key);
+    });
+
+    // Event 5: Blur from DOB
+    document.getElementById("dob").addEventListener("blur", () => {
+      console.log("User left the DOB field");
+    });
+  </script>
+
+</body>
+</html>
